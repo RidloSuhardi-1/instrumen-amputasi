@@ -113,18 +113,18 @@
                     </div>
                 </div>
 
-                <!-- Bagian Saran Pengobatan -->
+                <!-- Bagian Advis -->
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Saran Pengobatan</strong>
+                        <strong class="card-title">Advis</strong>
                     </div>
                     <div class="card-body">
-                        <?php if (empty($saran_pengobatan) || ($saran_pengobatan == NULL)) : ?>
+                        <?php if (empty($advis) || ($advis == NULL)) : ?>
                             <p class="card-text">Undefined</p>
                         <?php else : ?>
                             <ul class="mx-4 card-text">
-                                <?php foreach ($saran_pengobatan as $saran) : ?>
-                                    <li><?= ucfirst($saran); ?></li>
+                                <?php foreach ($advis as $a) : ?>
+                                    <li><?= ucfirst($a); ?></li>
                                 <?php endforeach; ?>
                             </ul>
                         <?php endif; ?>

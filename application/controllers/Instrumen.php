@@ -35,9 +35,9 @@ class Instrumen extends CI_Controller
             // deskripsi dan saran
 
             $data['keterangan'] = '';
-            $data['saran_pengobatan'] = [];
+            $data['advis'] = [];
 
-            $saran = [
+            $advis = [
                 'ringan' => [
                     'Pertahankan kadar gula darah dalam batas normal melalui pengaturan diet',
                     'Lakukan olahraga teratur minimal 15 menit sehari',
@@ -64,13 +64,13 @@ class Instrumen extends CI_Controller
 
             if ($data['total_skor'] < 3) {
                 $data['keterangan'] = 'risiko ringan';
-                $data['saran_pengobatan'] = $saran['ringan'];
+                $data['advis'] = $advis['ringan'];
             } elseif ($data['total_skor'] >= 3 && $data['total_skor'] <= 9) {
                 $data['keterangan'] = 'risiko sedang';
-                $data['saran_pengobatan'] = $saran['sedang'];
+                $data['advis'] = $advis['sedang'];
             } else {
                 $data['keterangan'] = 'risiko berat';
-                $data['saran_pengobatan'] = $saran['berat'];
+                $data['advis'] = $advis['berat'];
             }
 
             $data['skor_usia'] = $post_data['usia'];
