@@ -38,7 +38,7 @@
                         <strong class="card-title">Detail Skor</strong>
                     </div>
                     <div class="card-body">
-                        <ul class="mx-4">
+                        <ul class="mx-4 card-text">
                             <li>
                                 <div class="row">
                                     <div class="col">
@@ -110,6 +110,24 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+                <!-- Bagian Saran Pengobatan -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Saran Pengobatan</strong>
+                    </div>
+                    <div class="card-body">
+                        <?php if (empty($saran_pengobatan) || ($saran_pengobatan == NULL)) : ?>
+                            <p class="card-text">Undefined</p>
+                        <?php else : ?>
+                            <ul class="mx-4 card-text">
+                                <?php foreach ($saran_pengobatan as $saran) : ?>
+                                    <li><?= ucfirst($saran); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
 

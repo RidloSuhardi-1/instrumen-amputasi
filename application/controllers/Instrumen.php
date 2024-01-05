@@ -32,14 +32,45 @@ class Instrumen extends CI_Controller
                 $data['total_skor'] += $x;
             }
 
+            // deskripsi dan saran
+
             $data['keterangan'] = '';
+            $data['saran_pengobatan'] = [];
+
+            $saran = [
+                'ringan' => [
+                    'Pertahankan kadar gula darah dalam batas normal melalui pengaturan diet',
+                    'Lakukan olahraga teratur minimal 15 menit sehari',
+                    'Istirahat yang cukup dan berkwalitas 6-8 jam sehari',
+                    'Selalu memakai alas kaki secara baik dan benar',
+                    'Menjaga kebersihan kaki secara mandiri dan memantau keadaan kaki secara teratur setiap hari',
+                    'Konsumsi obat dan atau insulin secara teratur sesuai dosis yang dianjurkan'
+                ],
+                'sedang' => [
+                    'Pertahankan kadar gula darah dalam batas normal melalui pengaturan diet',
+                    'Lakukan olahraga teratur minimal 15 menit sehari',
+                    'Istirahat yang cukup dan berkwalitas 6-8 jam sehari',
+                    'Selalu memakai alas kaki secara baik dan benar',
+                    'Menjaga kebersihan kaki secara mandiri dan memantau keadaan kaki secara teratur setiap hari',
+                    'Konsumsi obat dan atau insulin secara teratur sesuai dosis yang dianjurkan',
+                    'Rajin kontrol ke fasilitas kesehatan minimal 1 bulan sekali'
+                ],
+                'berat' => [
+                    'Rujuk ke rumah sakit dengan fasilitas bedah yang memadai'
+                ]
+            ];
+
+            // pengelompokan berdasarkan skor
 
             if ($data['total_skor'] < 3) {
                 $data['keterangan'] = 'risiko ringan';
+                $data['saran_pengobatan'] = $saran['ringan'];
             } elseif ($data['total_skor'] >= 3 && $data['total_skor'] <= 9) {
                 $data['keterangan'] = 'risiko sedang';
+                $data['saran_pengobatan'] = $saran['sedang'];
             } else {
                 $data['keterangan'] = 'risiko berat';
+                $data['saran_pengobatan'] = $saran['berat'];
             }
 
             $data['skor_usia'] = $post_data['usia'];
