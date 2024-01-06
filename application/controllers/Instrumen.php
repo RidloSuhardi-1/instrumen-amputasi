@@ -32,7 +32,7 @@ class Instrumen extends CI_Controller
                 $data['total_skor'] += $x;
             }
 
-            // deskripsi dan saran
+            // keterangan dan advis
 
             $data['keterangan'] = '';
             $data['advis'] = [];
@@ -44,6 +44,7 @@ class Instrumen extends CI_Controller
                     'Istirahat yang cukup dan berkwalitas 6-8 jam sehari',
                     'Selalu memakai alas kaki secara baik dan benar',
                     'Menjaga kebersihan kaki secara mandiri dan memantau keadaan kaki secara teratur setiap hari',
+                    'Lakukan perawatan luka secara aseptik dan antiseptik dengan prinsip mempertahankan <i>Moisturising</i>',
                     'Konsumsi obat dan atau insulin secara teratur sesuai dosis yang dianjurkan'
                 ],
                 'sedang' => [
@@ -52,11 +53,13 @@ class Instrumen extends CI_Controller
                     'Istirahat yang cukup dan berkwalitas 6-8 jam sehari',
                     'Selalu memakai alas kaki secara baik dan benar',
                     'Menjaga kebersihan kaki secara mandiri dan memantau keadaan kaki secara teratur setiap hari',
+                    'Lakukan perawatan luka secara aseptik dan antiseptik dengan prinsip mempertahankan <i>Moisturising</i>',
                     'Konsumsi obat dan atau insulin secara teratur sesuai dosis yang dianjurkan',
                     'Rajin kontrol ke fasilitas kesehatan minimal 1 bulan sekali'
                 ],
                 'berat' => [
-                    'Rujuk ke rumah sakit dengan fasilitas bedah yang memadai'
+                    'Rujuk ke rumah sakit dengan fasilitas bedah yang memadai',
+                    'Persiapan mental akan kehilangan bagian tubuh.'
                 ]
             ];
 
@@ -85,7 +88,7 @@ class Instrumen extends CI_Controller
             $this->load->view('pages/instrumen_hasil', $data);
             $this->load->view('partials/footer');
         } else {
-            show_error('Anda tidak diizinkan untuk mengakses halaman ini.', 403, 'Akses Terbatas');
+            redirect();
         }
     }
 }
